@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/build/intermediates/pre-dexed/basic/debug/classes-2761eb5bc3a2c52f8e7b4fdc017484ce351c3c0b.jar"
+        jar="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/build/intermediates/exploded-aar/com.viewpagerindicator/viewpagerindicator/2.4.1/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3c0b93a0bc07994b8e56d4a513f98f4baaa32bfa"/>
+    <item
+        dex="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/build/intermediates/pre-dexed/basic/debug/classes-5013b7931bf86fc25d69cf773145b7915ca09923.jar"
+        jar="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/build/intermediates/exploded-aar/com.jjoe64.graphview/graphview/3.1.1/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="0a023af464b5bc6800ff30d1145c486c63460777"/>
+    <item
+        dex="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/build/intermediates/pre-dexed/basic/debug/classes-27140098a1a42bc03f41936e90c613b734ba7eeb.jar"
+        jar="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/build/intermediates/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="af64527b748983a75de9c0756e9768b56b240a49"/>
+    <item
+        dex="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/build/intermediates/pre-dexed/basic/debug/support-v4-19.1.0-fe930dc68beb1e566675ce71b270d4091c6c249b.jar"
+        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+
+</pre-dex-items>

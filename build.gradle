@@ -1,0 +1,116 @@
+import java.util.regex.Pattern
+
+project.ext {
+    versionCode = '061'
+    versionName = '1.0.0'
+    archivesBaseName = project.name + '-' + project.versionName
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.12.2'
+    }
+}
+
+task update { // Task to update version in accessory filter
+    def accessoryFile = file('res/xml/accessory_filter.xml')
+    def accessoryText = accessoryFile.getText()
+
+    println 'Updating accessory filter version to: ' + project.versionName
+    def version = Pattern.compile('\"Balanbot\" version=\"(.*?)\"').matcher(accessoryText)
+    accessoryText = version.replaceAll('\"Balanbot\" version=\"' + project.versionName + '\"')
+
+    accessoryFile.write(accessoryText)
+}
+
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '19.1.0'
+
+    defaultConfig {
+        targetSdkVersion 19
+        versionName = project.versionName
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    productFlavors {
+        basic {
+            minSdkVersion 10
+            versionCode = Integer.parseInt('1000' + project.versionCode)
+        }
+        usb {
+            minSdkVersion 12
+            versionCode = Integer.parseInt('1200' + project.versionCode)
+        }
+    }
+
+    signingConfigs {
+        release
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+        }
+        basic {
+            java.srcDirs = ['flavors/basic/src']
+            res.srcDirs = ['flavors/basic/res']
+        }
+        usb {
+            manifest.srcFile 'flavors/usb/AndroidManifest.xml'
+            java.srcDirs = ['flavors/usb/src']
+            res.srcDirs = ['flavors/usb/res']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'libs' }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:19.1.+'
+    compile 'com.jjoe64.graphview:graphview:3.1.1'
+    compile 'com.viewpagerindicator:viewpagerindicator:2.4.1'
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    usbCompile 'com.physicaloid:physicaloid:1.0'
+    // Only supported on API level above 12
+}
+
+// These values are all set in my global gradle.properties file
+if (project.hasProperty('storeFile') && project.hasProperty('storePassword') && project.hasProperty('keyAlias') && project.hasProperty('keyPassword')) {
+    android.signingConfigs.release.storeFile = file(storeFile)
+    android.signingConfigs.release.storePassword = storePassword
+    android.signingConfigs.release.keyAlias = keyAlias
+    android.signingConfigs.release.keyPassword = keyPassword
+} else {
+    android.buildTypes.release.signingConfig = null
+}
+
+// Releasing:
+// 1. Update versionName and versionCode
+// 2. Run 'gradle clean build'
+// 3. Move APK to releases directory
+// 4. Upload to Github and create tag
+//    * Upload APK to release tab on Github as well
+// 5. Upload to Google Play Store
+//    * Also take new screenshots if necessary
+// 6. Update ADK version in Balanbot firmware

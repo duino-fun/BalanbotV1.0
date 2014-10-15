@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- USB Host is not available in this flavor -->
+</resources><!-- From: file:/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/flavors/basic/res/xml/device_filter.xml -->

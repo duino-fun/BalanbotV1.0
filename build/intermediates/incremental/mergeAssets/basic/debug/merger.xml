@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="4.4.0" >
+        <source path="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/build/intermediates/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/assets" />
+    </dataSet>
+    <dataSet config="2.4.1" >
+        <source path="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/build/intermediates/exploded-aar/com.viewpagerindicator/viewpagerindicator/2.4.1/assets" />
+    </dataSet>
+    <dataSet config="3.1.1" >
+        <source path="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/build/intermediates/exploded-aar/com.jjoe64.graphview/graphview/3.1.1/assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/src/main/assets" />
+    </dataSet>
+    <dataSet config="basic" >
+        <source path="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/src/basic/assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/src/debug/assets" />
+    </dataSet>
+    <dataSet config="basicDebug" >
+        <source path="/Users/lryain/Downloads/Balanduino/BalanBotV1.0.0/src/basicDebug/assets" />
+    </dataSet>
+
+</merger>
